@@ -1,0 +1,50 @@
+﻿@using Project00_WebPages
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+    <link href="~/styles/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h1>ldkjfghls dkfgh ls</h1>
+    <p>@DateTime.Now.ToLongTimeString()</p>
+
+    @{ 
+
+        var t = "lklkj";
+        t = t.ToUpper();
+        int res = 0 ;
+    }
+
+    @if(IsPost){
+
+        var tal1 = Request.Form["tal1"];
+        var tal2 = Request.Form["tal2"];
+        res = Convert.ToInt32(tal1) + Convert.ToInt32(tal2);
+
+    }
+    <form action="~/index.cshtml" method="post">
+        <input type="text" name="tal1" value="@Request.Form["tal1"]" />
+        <input type="text" name="tal2" value="@Request.Form["tal2"]" />
+        <input type="submit" name="name" value="Klik" />
+    </form>
+    
+    @if (this.IsPost) {
+        <hr />
+        <p>Resultatet er : @res</p>
+    }
+
+    <ul>
+    @for (int i = 0; i < 10; i++)
+    {
+            <li>item @i @t @Guid.NewGuid().ToString()</li>
+
+    }
+    </ul>
+    <h2>@Person.Test()</h2>
+    <script src="~/scripts/app.js"></script>
+</body>
+</html>
