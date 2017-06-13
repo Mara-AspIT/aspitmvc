@@ -1,4 +1,6 @@
-﻿using Project02_Models.Models.ViewModels;
+﻿using Project02_Models.Models.Domain.EF;
+using Project02_Models.Models.Domain.EF.Repository;
+using Project02_Models.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,13 @@ namespace Project02_Models.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [Route("~/PeopleMan")]
+        public ActionResult PeopleMan()
+        {
+            var res = new PeopleRepository().GetAll();
+            return View("People", res);            
         }
 
         [HttpGet]
@@ -39,10 +48,11 @@ namespace Project02_Models.Controllers
                     return View(m);
                 }
             }
-            else {
+            else
+            {
                 return View(m);
             }
-            
+
         }
     }
 }
