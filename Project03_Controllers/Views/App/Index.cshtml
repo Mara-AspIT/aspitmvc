@@ -1,0 +1,19 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> Test
+    </div>
+    <div>@ViewBag.time</div>
+    <ul>
+        @foreach (PersonNuGetPackage.Person item in ViewBag.people)
+        {
+            <li>@item.Name</li>
+        }
+    </ul>
+</body>
+</html>
