@@ -1,0 +1,21 @@
+﻿@model List<Ubåd.Models.UBåd>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Styles/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+</head>
+<body class="animated rubberBand">
+    <h1>Der er @Model.Count ubåde</h1>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.Navn (@item.Nummer)</li>
+        }
+    </ul>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>My App</title>
+    <style>
+        body {
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <h1>My app...</h1>
+    <hr />
+    
+    <div> 
+        @RenderBody()
+    </div>
+    <hr />
+    <div>
+        @RenderSection("MySection", false)
+    </div>
+    <hr />
+    <h5>My footer</h5>
+</body>
+</html>
