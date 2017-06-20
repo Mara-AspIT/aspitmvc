@@ -28,10 +28,65 @@ namespace Project03_Controllers.Controllers
 
 
             ViewBag.time = DateTime.Now.ToLongTimeString();
-            ViewBag.people = lst; 
+            ViewBag.people = lst;
 
-            return View();
+            return View(lst);
 
         }
+
+        [Route("Test/{year}/{month}")]
+        [HttpGet]
+        public ActionResult Test(TestViewModel v) {
+        //public ActionResult Test(int year, int month, string test, MyColor c)
+ 
+            //return Content("Test");
+            return View();
+        }
+
+        [Route("~/CacheTest")]
+        [OutputCache(Duration = 1)]
+        [HttpGet]
+        public ActionResult CacheTest() {
+            return View();
+        }
+
+        [Route("~/list")]
+        public ActionResult List()
+        {
+            List<string> lst = new List<string>();
+            for (int i = 0; i < 5; i++)
+            {
+                lst.Add(Guid.NewGuid().ToString()); 
+            }
+            return PartialView(lst);
+        }
+
+        [Route("~/listtest")]
+        public ActionResult Listtest()
+        {
+            return View();
+        }
+
+        [Route("~/ajax1")]
+        public ActionResult Ajax1()
+        {
+            return View();
+        }
+
+    }
+
+
+    public enum MyColor // : Byte
+    {
+        Red,
+        Blue,
+        Yellow
+    }
+    public class TestViewModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public DateTime DateOf { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }
